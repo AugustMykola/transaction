@@ -33,7 +33,7 @@
     <mat-label>Transaction Type</mat-label>
     <mat-select formControlName="type">
       <mat-option [value]="TYPES.INCOME">{{ TYPES.INCOME }}</mat-option>
-      <mat-option value="TYPES.EXPENSE">{{ TYPES.EXPENSE }}</mat-option>
+      <mat-option [value]="TYPES.EXPENSE">{{ TYPES.EXPENSE }}</mat-option>
     </mat-select>
     @if(transactionForm.get('type')?.hasError('required')){
     <mat-error> Transaction type is required </mat-error>
