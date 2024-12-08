@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  padding-top: 10px;
+  .balance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 80vw;
+    height: 20vh;
+
+    margin: 0 auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0px #000;
+
+    font-size: xx-large;
+    font-family: "Parkinsans", sans-serif;
+
+    background-color: #dbdbdbb3;
+  }
+}

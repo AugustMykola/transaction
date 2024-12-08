@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label><ng-content></ng-content></mat-label>
+  <mat-select [(ngModel)]="selectedValue">
+    @for (value of values; track value) {
+    <mat-option [value]="value" (click)="sendData()">{{ value }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>

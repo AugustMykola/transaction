@@ -1,0 +1,69 @@
+<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      formControlName="name"
+      placeholder="Enter transaction name"
+    />
+    @if(transactionForm.get('name')?.hasError('required')){
+    <mat-error> Name is required </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      formControlName="amount"
+      placeholder="Enter amount"
+      type="number"
+      step="0.01"
+    />
+    @if(transactionForm.get('amount')?.hasError('required')){
+    <mat-error> Amount is required </mat-error>
+    } @if(transactionForm.get('amount')?.hasError('pattern')){
+    <mat-error>
+      Amount must be a valid number with up to two decimal places
+    </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Transaction Type</mat-label>
+    <mat-select formControlName="type">
+      <mat-option [value]="TYPES.INCOME">{{ TYPES.INCOME }}</mat-option>
+      <mat-option value="TYPES.EXPENSE">{{ TYPES.EXPENSE }}</mat-option>
+    </mat-select>
+    @if(transactionForm.get('type')?.hasError('required')){
+    <mat-error> Transaction type is required </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="category">
+      @for (category of categories; track category) {
+      <mat-option [value]="category">
+        {{ category }}
+      </mat-option>
+      }
+    </mat-select>
+    @if(transactionForm.get('category')?.hasError('required')){
+    <mat-error> Category is required </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Transaction Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="transactionForm.invalid"
+  >
+    Add Record
+  </button>
+</form>
