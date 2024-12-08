@@ -1,5 +1,14 @@
-:host{
+.filters{
   display: flex;
-  justify-content: space-around;
-  width: 40vw;
+  flex-direction: column;
+  gap: 40px;
+}
+.full-width {
+  width: 100%;
+}
+
+::ng-deep {
+  mat-form-field{
+    width: 100%;
+  }
 }

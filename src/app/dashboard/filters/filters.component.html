@@ -1,15 +1,20 @@
-<app-select
-  [values]="categories"
-  [currentValue]="filters.get('category') || 'All'"
-  (selectedValueChanged)="updateFilter($event, 'category')"
->
-  Filter by categories
-</app-select>
+<div class="filters">
+  <app-select
+    class="full-width"
+    [values]="categories"
+    [currentValue]="filters.get('category') || 'All'"
+    (selectedValueChanged)="updateFilter($event, 'category')"
+  >
+    Filter by categories
+  </app-select>
 
-<app-select
-  [values]="types"
-  [currentValue]="filters.get('type') || 'All'"
-  (selectedValueChanged)="updateFilter($event, 'type')"
->
-  Filter by type transaction
-</app-select>
+  <app-select
+    class="full-width"
+    [values]="types"
+    [currentValue]="filters.get('type') || 'All'"
+    (selectedValueChanged)="updateFilter($event, 'type')"
+  >
+    Filter by type transaction
+  </app-select>
+
+</div>
